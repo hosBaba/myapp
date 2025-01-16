@@ -22,15 +22,15 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule), //canActivate: [AngularFireAuthGuard],
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'vente',
-    loadChildren: () => import('./vente/vente.module').then( m => m.VentePageModule)
+    loadChildren: () => import('./vente/vente.module').then( m => m.VentePageModule), canActivate: [AngularFireAuthGuard]
   },
   {
     path: 'location',
-    loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule)
+    loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule), canActivate: [AngularFireAuthGuard]
   },
 ];
 

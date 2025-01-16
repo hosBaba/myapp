@@ -1,10 +1,10 @@
 <ion-header [translucent]="true">
 
-  <ion-toolbar>
+  <ion-toolbar  class="mytolbar">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/profile"></ion-back-button>
     </ion-buttons>
-    <ion-title size="large">vente</ion-title>
+    <ion-title class="title">vente</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -43,16 +43,16 @@
 
  
  <ion-content>
-  <ion-item *ngFor="let product of products" class="custom-item">
-    <div class="product-image">
-      <img [src]="product.imgUrl" alt="Image de {{ product.name }}" />
-    </div>
+   <!-- afficher data -->
+   <div class="product-card" *ngFor="let product of products">
+    <!-- صورة المنتج -->
+    <img [src]="product.imgUrl" alt="{{ product.name }}" class="product-image" />
+  
+    <!-- تفاصيل المنتج -->
     <div class="product-details">
-      <h2>{{ product.type }}</h2>
-      <p>Model: {{ product.model }} </p>
-      <p>Annee: {{ product.annee }} </p>
-      <p>Prix: {{ product.price }} UN</p>
-
+      <h3 class="product-name">{{ product.type }}</h3>
+      <p class="product-price">{{ product.model  }}</p>
+      <p class="product-description">{{ product.price }}</p>
     </div>
-  </ion-item>
+  </div>
  </ion-content>

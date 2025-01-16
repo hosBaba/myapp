@@ -60,21 +60,17 @@
 
    
   <!-- afficher data -->
-    <ion-item *ngFor="let product of products" class="custom-item">
-      <div >
-       
-        <img class="product-image" [src]="product.imgUrl" alt="Image de {{ product.name }}" />
-      </div>
-     <!--  <div class="product-details">
-        <h3>{{ product.type }}</h3>
-        <p>Model: {{ product.model }} </p>
-        <p>Annee: {{ product.annee }} </p>
-        <p>Prix: {{ product.price }} UN</p>
-        <p>Date: {{ product.date }} UN</p>
-
+  <div class="product-card" *ngFor="let product of products">
+    <!-- صورة المنتج -->
+    <img [src]="product.imgUrl" alt="{{ product.name }}" class="product-image" />
   
-      </div> -->
-    </ion-item>
+    <!-- تفاصيل المنتج -->
+    <div class="product-details">
+      <h3 class="product-name">{{ product.type }}</h3>
+      <p class="product-price">{{ product.model  }}</p>
+      <p class="product-description">{{ product.price }}</p>
+    </div>
+  </div>
  
 
  
