@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "10054745160",
+    "project_id": "mycars-4e11d",
+    "storage_bucket": "mycars-4e11d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10054745160:android:fce3ceb0407f789f31ac7d",
+        "android_client_info": {
+          "package_name": "com.topcars.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBsMnBmLy15Ca8F1zX2EqHerF46A-Wq58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

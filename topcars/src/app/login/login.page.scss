@@ -1,0 +1,37 @@
+.auth-form{
+    --ion-background-color: #ffffff;
+}
+  
+  
+  .login-title {
+    text-align: center;
+    color:#008CBA;
+    font-size: 36px; /* Size of the text */
+    font-family: Arial, sans-serif; /* Font style */
+
+}
+
+.form-container{
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+}
+
+.mybutton{
+ font-size: 2opx;
+ width: 100%;
+ text-align: center;
+ position: fixed;
+ bottom: 0;   /* Fixe le bouton au bas de la page */
+ left: 0;     /* Place le bouton à gauche */
+ width: 100%; /* Le bouton occupe toute la largeur */
+
+}
+.logo-container {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    margin: 10px;
+  }

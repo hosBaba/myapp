@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="large">vente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">vente</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+ 
+
+  <ion-item >
+    <ion-label position="floating">Type</ion-label>
+    <ion-input type="text" name="type" [(ngModel)]="type" required></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label position="floating">Model</ion-label>
+    <ion-input type="text" name="model" [(ngModel)]="model" required></ion-input>
+  </ion-item>
+ 
+  <ion-item >
+    <ion-label position="floating">Annee</ion-label>
+    <ion-input type="text" name="annee" [(ngModel)]="annee" required></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label position="floating">Price</ion-label>
+    <ion-input type="text" name="price" [(ngModel)]="price" required></ion-input>
+  </ion-item>
+  
+  <div class="custom-file-upload"> <ion-item>
+    <input class="chose" type="file" (change)="onFileSelected($event)" />
+  </ion-item> </div>
+  
+  <ion-button  expand="block" (click)="uploadFile()">Upload</ion-button>
+
+ 
+ <ion-content>
+  <ion-item *ngFor="let product of products" class="custom-item">
+    <div class="product-image">
+      <img [src]="product.imgUrl" alt="Image de {{ product.name }}" />
+    </div>
+    <div class="product-details">
+      <h2>{{ product.type }}</h2>
+      <p>Model: {{ product.model }} </p>
+      <p>Annee: {{ product.annee }} </p>
+      <p>Prix: {{ product.price }} UN</p>
+
+    </div>
+  </ion-item>
+ </ion-content>

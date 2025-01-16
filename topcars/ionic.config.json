@@ -1,0 +1,7 @@
+{
+  "name": "topcars",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

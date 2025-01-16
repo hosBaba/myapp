@@ -1,0 +1,86 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar class="content">
+     
+      <ion-title class="title">Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content class="ion-padding">
+
+
+
+            <div class> 
+              <ion-menu-toggle class="tog" >
+              <ion-item detail="true" button  [routerLink]="['/location']">
+                <ion-label class="box">location de voitures</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </div>
+            <div > 
+              <ion-menu-toggle class="tog">
+              <ion-item detail="true" button routerLink="/vente">
+                <ion-label class="box">vente de Voitures  </ion-label>
+              </ion-item>
+            </ion-menu-toggle> </div>
+            <div >
+              <ion-menu-toggle class="tog">
+              
+              <ion-item detail="true" button type="submit" (click)="logOut()" >
+                <ion-label class="box">Se déconnecter </ion-label>
+              </ion-item>
+            </ion-menu-toggle></div>
+
+      
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar class="tolbarNenu">
+      <ion-buttons  slot="start" >
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="Menutitle">Menu</ion-title>
+      
+    </ion-toolbar>
+
+    <ion-searchbar 
+    placeholder="Rechercher un produit"
+    (ionInput)="filterProducts($event)">
+  </ion-searchbar>
+    
+<!--     <ion-button (click)="refreshPage()">Actualiser</ion-button>
+ -->
+  </ion-header>
+  <ion-content class="ion-padding"> 
+ 
+   
+
+   
+  <!-- afficher data -->
+    <ion-item *ngFor="let product of products" class="custom-item">
+      <div >
+       
+        <img class="product-image" [src]="product.imgUrl" alt="Image de {{ product.name }}" />
+      </div>
+     <!--  <div class="product-details">
+        <h3>{{ product.type }}</h3>
+        <p>Model: {{ product.model }} </p>
+        <p>Annee: {{ product.annee }} </p>
+        <p>Prix: {{ product.price }} UN</p>
+        <p>Date: {{ product.date }} UN</p>
+
+  
+      </div> -->
+    </ion-item>
+ 
+
+ 
+
+  </ion-content>
+
+</div>
+
+
