@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 export class AuthService {
   private dbPath = '/users';
   private productPath = '/products';
+  isUploading = false; // حالة الرفع
+
 
   private mystorage = getStorage();
 
@@ -134,16 +136,32 @@ addProduct(product: any): void {
   });
 }
 
-//get photo in my storage
 
-async getPhotoURLs(): Promise<string[]> {
-  const storageRef = ref(this.mystorage, 'photos/');
-  const result = await listAll(storageRef);
-  const urls = await Promise.all(result.items.map((itemRef) => getDownloadURL(itemRef)));
-  return urls;
+
+uploadImage(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const filePath = `products/${Date.now()}_${file.name}`; // مسار الصورة
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    this.isUploading = true; // تغيير حالة الرفع
+
+    task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(
+            (url) => {
+              this.isUploading = false;
+              resolve(url); // إرجاع رابط الصورة
+            },
+            (error) => reject(error)
+          );
+        })
+      )
+      .subscribe();
+  });
 }
-
-
 
 
 }

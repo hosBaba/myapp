@@ -91,15 +91,5 @@ uid :string="";
       .catch(err => console.error('Error deleting record:', err));
   }
 
-  async product (){
-    const myProduct={
-      type:this.type,
-      model:this.model,
-      annee:this.annee,
-      price:this.price,
-      imgUrl:this.auth.getPhotoURLs()
-     }
-     this.auth.addProduct(myProduct)
-    
-  }
+  
 }
