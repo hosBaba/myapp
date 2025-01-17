@@ -65,13 +65,11 @@ logOut(){
  
 
 //add users
-addUser(user: any): void {
+ addUser(user: any): void {
   this.data.list(this.dbPath).push(user);
 }
-//add product
-addProduct(product: any): void {
-
- 
+//add products
+ addProduct(product: any): void {
   this.data.list(this.productPath).push(product);
 }
 
@@ -140,7 +138,7 @@ addProduct(product: any): void {
 
 uploadImage(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
-    const filePath = `products/${Date.now()}_${file.name}`; // مسار الصورة
+    const filePath = `photos/${Date.now()}_${file.name}`; // مسار الصورة
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
 

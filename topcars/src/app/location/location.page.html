@@ -62,6 +62,20 @@
       </form>
     </div>
     
+     <!-- afficher data -->
+  <div class="product-card" *ngFor="let product of products">
+    <!-- صورة المنتج -->
+    <img [src]="product.imageFile" alt="{{ product.name }}" class="product-image" />
+  
+    <!-- تفاصيل المنتج -->
+    <div class="product-details">
+      <h3 class="product-name">{{ product.type }}</h3>
+      <p class="product-price">{{ product.model  }}</p>
+      <p class="product-description">{{ product.price }}</p>
+    </div>
+  </div>
+
+
     
   </ion-content>
 

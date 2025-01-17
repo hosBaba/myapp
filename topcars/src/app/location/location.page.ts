@@ -15,10 +15,11 @@ export class LocationPage implements OnInit {
   imagePreview: string | ArrayBuffer | null = null;
   downloadURL: string = '';
 uid :string="";
-file: File | null = null;
+products: any[] = [];
 
 
-  constructor(private auth:AuthService, private router:Router, private fb:FormBuilder,private myauth:AngularFireAuth) {
+
+  constructor(  private auth:AuthService, private router:Router, private fb:FormBuilder,private myauth:AngularFireAuth) {
     this.productForm = this.fb.group({
       type: ['', [Validators.required, Validators.minLength(3)]],
       model: ['', [Validators.required, Validators.minLength(3)]],
@@ -30,7 +31,10 @@ file: File | null = null;
    }
 
   ngOnInit() {
-    
+    this.auth.getUserProducts().subscribe(data=>{
+      this.products=data.reverse();
+     })
+   
   }
 
 
@@ -54,21 +58,33 @@ file: File | null = null;
         try {
           const file = this.productForm.get('imageFile')?.value;
           const imageUrl = await this.auth.uploadImage(file); // رفع الصورة
-          const productData = {
-            ...this.productForm.value,
-            imageFile: imageUrl, // تحديث رابط الصورة
-          };
-          this.auth.addProduct(productData)
-  
-          console.log('Produit ajouté :', productData);
-          alert('Produit ajouté avec succès !');
-          this.productForm.reset();
-          this.imagePreview = null;
-        } catch (error) {
+          const user=this.myauth.authState.subscribe(userid=>{
+            if (userid) {
+              this.uid=userid.uid;
+              const productData = {
+                ...this.productForm.value,
+                imageFile: imageUrl,
+                uid:this.uid,
+                date: new Date().toISOString(), 
+
+              };
+              this.auth.addProduct(productData)
+      
+              console.log('Produit ajouté :', productData);
+              alert('Produit ajouté avec succès !');
+              this.productForm.reset();
+              this.imagePreview = null;
+            } 
+
+          })
+         
+        } 
+        catch (error) {
           alert('Erreur lors du téléchargement de l\'image.');
           console.error(error);
         }
-      } else {
+      }
+       else {
         alert('Veuillez remplir tous les champs correctement.');
       }
     }
