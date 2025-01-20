@@ -32,10 +32,7 @@
         <input id="name" type="text" formControlName="model" placeholder="Entrez le modele de voiture" />
       </div>
 
-      <div class="form-group">
-        <label for="name">Date de production</label>
-        <input id="name" type="text" formControlName="annee" placeholder="Entrez le date de production" />
-      </div>
+     
   
       <!-- سعر المنتج -->
       <div class="form-group">
@@ -62,7 +59,7 @@
       </div>
   
       <!-- زر الإضافة -->
-      <button type="submit" [disabled]="productForm.invalid">Ajouter le produit</button>
+      <button size="large" type="submit" [disabled]="productForm.invalid">Ajouter le produit</button>
     </form>
   </div>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +10,30 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  email:string=""
-  password:string=""
+  productForm:FormGroup
 
-
-  constructor(private auth:AuthService,private router:Router) { }
+  constructor(private auth:AuthService,private router:Router,private fb:FormBuilder) { 
+     this.productForm = this.fb.group({
+              email: ['', [Validators.required, Validators.minLength(3)]],
+              password: ['', [Validators.required, Validators.minLength(3)]],
+            });
+  }
 
   ngOnInit() {
   }
 
   async logIn(){
-    const user=await this.auth.logIn(this.email,this.password).then(user=>{
+    const formValues = this.productForm.value;
+    const email = formValues.email;
+    const password = formValues.password;  
+    const user=await this.auth.logIn(email,password).then(user=>{
 
       if (user) {
         this.router.navigateByUrl('/profile')
+        this.productForm.reset();
       } else {
-        this.router.navigateByUrl('/home')
+        alert('votre email ou mots de passe est invalide');
+
 
       }
     })

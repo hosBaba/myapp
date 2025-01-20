@@ -22,13 +22,7 @@ export class AuthService {
   private mystorage = getStorage();
 
   constructor(private shared:SharedService, private auth:AngularFireAuth,private data:AngularFireDatabase, private storage:AngularFireStorage, private router:Router) {
-    this.auth.authState.subscribe(user => {
-      if (user) {
-        this.router.navigate(['/profile']); // Redirige vers le tableau de bord
-      } else {
-        this.router.navigate(['/home']); // Redirige vers la page de connexion
-      }
-    });
+    
 
 }
  

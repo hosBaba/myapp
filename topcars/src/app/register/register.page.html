@@ -16,24 +16,24 @@
     <ion-row class="ion-justify-content-center ion-align-items-center">
       <ion-col  size="12">
 
-      <form>
+      <form [formGroup]="productForm">
         <ion-item lines="full">
           <ion-label position="floating">Name</ion-label>
-          <ion-input type="text" name="name" [(ngModel)]="name" required></ion-input>
+          <ion-input type="text" formControlName="name" ></ion-input>
         </ion-item>
         <ion-item lines="full">
           <ion-label position="floating">Phone</ion-label>
-          <ion-input type="text" name="phoneNumber" [(ngModel)]="phoneNumber" required></ion-input>
+          <ion-input type="text" formControlName="phoneNumber"  required></ion-input>
         </ion-item>
        
         <ion-item lines="full">
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="text" name="email" [(ngModel)]="email" required></ion-input>
+          <ion-input type="text" formControlName="email" ></ion-input>
         </ion-item>
     
         <ion-item lines="full">
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" name="password" [(ngModel)]="password" required></ion-input>
+          <ion-input type="password" formControlName="password" ></ion-input>
         </ion-item>
     
         <ion-row>

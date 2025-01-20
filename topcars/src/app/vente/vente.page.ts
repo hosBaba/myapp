@@ -29,7 +29,6 @@ uid :string="";
       this.productForm = this.fb.group({
           type: ['', [Validators.required, Validators.minLength(3)]],
           model: ['', [Validators.required, Validators.minLength(3)]],
-          annee: ['', [Validators.required, Validators.minLength(3)]],
           price: [null, [Validators.required, Validators.min(1)]],
           description: ['', Validators.required],
           imageFile: [null, Validators.required] // حقل الملف

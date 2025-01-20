@@ -12,14 +12,14 @@
     <img src="assets/icon/car.png" alt="Logo" class="logo">
   </div>
   <div class="form-container">
-    <form>
+    <form [formGroup]="productForm">
       <ion-item lines="full">
         <ion-label position="stacked">Email</ion-label>
-        <ion-input type="text" name="email" [(ngModel)]="email" required></ion-input>
+        <ion-input type="text" formControlName="email" ></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="stacked">Password</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="password" required></ion-input>
+        <ion-input type="password" formControlName="password" ></ion-input>
       </ion-item>
       <ion-button class="mybutton" color="warning" size="large"  type="submit"  expand="block" (click)="logIn()">Log In</ion-button>
     </form>
